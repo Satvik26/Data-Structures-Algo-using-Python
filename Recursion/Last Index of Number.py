@@ -49,3 +49,30 @@ print(lastIndex(arr, x))
 
 # Code 2 : Using the starting Index
 
+
+def lastIndex(arr, x, si):
+    n= len(arr)
+    if si == n:
+        return -1
+    smallerOutput = lastIndex(arr, x , si+1 )
+    
+    if smallerOutput == -1:
+        if arr[si] == x:
+            return si
+        else:
+            return -1
+    else:
+        return smallerOutput
+
+
+
+
+
+from sys import setrecursionlimit
+setrecursionlimit(11000)
+n=int(input())
+arr=list(int(i) for i in input().strip().split(' '))
+x=int(input())
+si = 0
+print(lastIndex(arr, x,si))
+
